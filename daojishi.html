@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	    <meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		
+		<title></title>
+		<style type="text/css">
+            .box{
+            	width: 360px;
+            	margin: 20px auto;
+            	height: 200px;
+            	text-align: center;
+            	line-height: 200px;
+            	background: pink;
+            }
+            .active{
+            	background: orange;
+            	color: #fff;
+            }
+		</style>
+</head>
+<body>
+   <div class="box">
+   	  距离2018/9/5还有<span class="time"></span>
+   </div>
+   <script src="js/jquery.min.js"></script>
+   <script type="text/javascript">
+       djs()
+   	   var timer=setInterval(djs,1000)
+       function djs(){
+       	   var nowdate=new Date();
+	   	   var newdate=new Date(2018,8,11,16,3);
+	   	   // console.log(nowdate)
+	   	   // console.log(newdate)
+	   	   var date=newdate-nowdate;
+	       // var date1=Math.floor(date.valueOf()/1000)
+	       // console.log(date1)
+	       var day=Math.floor(date/1000/60/60/24)
+	   	   var hour=Math.floor(date/1000/60/60%24);
+	   	   var minute=Math.floor(date/1000/60%60);
+	   	   var miao=Math.floor(date/1000%60);
+	   	   if(date<=0){
+   	       	clearInterval(timer)
+   	       	$(".box").addClass("active")
+   	       }else{
+   	       	 $(".time").html(day+'天'+hour+'时'+minute+'分'+miao+'秒')
+   	       }
+   	       
+   	       
+       }
+       
+   	   
+       
+       
+   </script>
+</body>
+</html>
